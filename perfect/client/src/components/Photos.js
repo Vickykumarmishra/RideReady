@@ -11,7 +11,7 @@ export default function Photos() {
         getImage();
     },[])
     const getImage = async () => {
-        const result = await axios.get("https://brave-red-duckling.cyclic.app/get-image");
+        const result = await axios.get("https://rideserver.onrender.com/get-image");
         //console.log(result);
         setAllImage(result.data.data);
       };

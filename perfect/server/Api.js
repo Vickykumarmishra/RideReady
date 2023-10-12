@@ -25,6 +25,12 @@ app.post('/post',async (req,res)=>{
    res.send(result);
 })
 
+app.delete("/delete/:_id", async (req, resp) => {
+  console.log(req.params)
+  let data = await Product.deleteOne(req.params);
+  resp.send(data);
+}) 
+
 
 const multer = require("multer");
 

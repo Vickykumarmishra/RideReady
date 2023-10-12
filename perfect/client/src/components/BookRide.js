@@ -11,7 +11,7 @@ export default function BookRide() {
   useEffect(() => {
 
    
-    axios.get("https://brave-red-duckling.cyclic.app/getter")
+    axios.get("https://rideserver.onrender.com/getter")
       .then(response => {
        // console.log(response.data);
         setInfo(response.data);
@@ -31,6 +31,48 @@ export default function BookRide() {
       'success'
     )
   }
+
+//  function deleter(id){
+//    console.log(id)
+
+//     fetch(`http://localhost:8000/delete/${id}`, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({}) // You can pass data as the request body if needed
+//     }).then(()=>{console.log('data deleted succesfully')})
+//   }
+
+function deleter(id) {
+  console.log(id); // Corrected from console.log({id})
+
+  fetch(`https://rideserver.onrender.com/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    // You can pass data as the request body if needed, for example:
+    // body: JSON.stringify({ id: id })
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Data deleted successfully');
+      } else {
+        console.error('Failed to delete data');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+    Swal.fire(
+      'Deleted  successfully from database',
+      'Refresh the page to see the effect',
+      'success'
+    )  
+}
+
   return (
   
        
@@ -56,6 +98,7 @@ export default function BookRide() {
           <th> pickup point</th>
            <th>Amount</th>
           <th>Time</th> 
+          <th>Delete</th>
   
           {/* <th>image</th> */}
           </tr></thead>
@@ -63,13 +106,11 @@ export default function BookRide() {
            {
              info.map((soln)=>{
               
-              const {id,name,phone,pickup,charge,time}=soln;
+              const {_id,name,phone,pickup,charge,time}=soln;
 
          
               
                   return(
-                 
-                    
                   
           
                  <tr>
@@ -78,7 +119,7 @@ export default function BookRide() {
                   <td>{pickup}</td>
                   <td >{charge}</td>
                   <td >{time}</td>
-                
+                 <button className='btn btn-danger' onClick={()=>{deleter(_id)}} style={{backgroundColor:'orange',margin:'0.2rem'}}>Delete</button>
                   {/* <td>{image}</td> */}
                  
                  </tr>
