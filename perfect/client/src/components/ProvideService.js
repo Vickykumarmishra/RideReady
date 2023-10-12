@@ -126,25 +126,37 @@ export default function ProvideService() {
   }
 
 else{  
-      const formData = new FormData();
-      formData.append("image", image);
-  
-      const result = await axios.post(
-        "https://rideserver.onrender.com/upload-image",
-
-        
       
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
-      console.log(result)
-      Swal.fire(
-        'saved',
-        'image successfully saved to database!',
-        'success'
-      )}
+  const formData = new FormData();
+  formData.append("image", image);
+  
+  try {
+    const result = await axios.post(
+      "https://rideserver.onrender.com/upload-image",
+      formData,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+    console.log(result);
+    Swal.fire(
+      'saved',
+      'image successfully saved to database!',
+      'success'
+    );
+  } catch (error) {
+    // Handle the error here, you can log it or display an error message to the user
+    console.error('An error occurred:', error);
+    // You can also show an error message to the user, for example using Swal
+    Swal.fire(
+      'Error',
+      'An error occurred while saving the image.',
+      'error'
+    );
+  }
+
+  
+}
       
     };
    
