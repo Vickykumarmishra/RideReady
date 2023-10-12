@@ -53,7 +53,7 @@ export default function ProvideService() {
     
    
   
-    const url="http://localhost:8000/post"
+    const url="https://rideserver.onrender.com/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''){
 
@@ -130,7 +130,7 @@ else{
       formData.append("image", image);
   
       const result = await axios.post(
-        "http://localhost:8000/upload-image",
+        "https://rideserver.onrender.com/upload-image",
 
         
       
