@@ -53,7 +53,7 @@ export default function ProvideService() {
     
    
   
-    const url="https://perfectrider.onrender.com/post"
+    const url="http://localhost:8000/post"
    
      if(name!==''&&phone!==''&&pickup!==''&&charge!==''&&time!==''){
 
@@ -132,7 +132,7 @@ else{
   
   try {
     const result = await axios.post(
-      "https://perfectrider.onrender.com/upload-image",
+      "http://localhost:8000/upload",
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },

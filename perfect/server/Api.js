@@ -1,17 +1,24 @@
 const express=require('express');
 const mongoose = require("mongoose");
 require("./Connection");
-
+require('dotenv').config()
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary=require('cloudinary').v2
 const app=express();
 const cors = require("cors"); //iske bina kam nahi kar raha
 app.use(cors());
 app.use(express.json())
 
+cloudinary.config({
+  cloud_name: 'dzw6geqqi',
+  api_key: '128965351476669',
+  api_secret: 'vKzF0ACjhUScXJI1fIgcYiiCgjU'
+ });
 
 const Product=require('./SchemaRide');
 require("./SchemaRide")
 require("./SchemaImage")
-const Images=mongoose.model("photos")
+const photos=mongoose.model("photos")
 
 
 
@@ -35,34 +42,29 @@ app.delete("/delete/:_id", async (req, resp) => {
 const multer = require("multer");
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "../client/src/images/");
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now();//date.now has been used for the case when we upload same image twice. in that case it ensure unique file name.
-    cb(null, uniqueSuffix + file.originalname);
-  },
+  destination:'uploads/'
 });
+
+
 
 const upload = multer({ storage: storage });
 
 
-app.post("/upload-image", upload.single("image"), async (req, res) => {
-  /*image is the name of the variable in which images will get stored */
-  console.log(req.body);
-  res.send("this page is working")
-  const imageName = req.file.filename;
-
-  try {
-    await Images.create({ image: imageName });
-    //The create method is used to insert a new document into the MongoDB collection.
-    //Here image is the name of the field in databse and imageName has name of the corresponding image.
-    res.json({ status: "ok" });
-  } catch (error) {
-    res.json({ status: error });
-  }
-});
-
+app.post('/upload', upload.single('image'), async function (req, res, next) {
+  //image is the name of the input field
+  cloudinary.uploader.upload(req.file.path, async function(err, result) {
+     if(err) {
+       console.log(err);
+       res.status(500).send(err);
+     } else {
+       console.log('File uploaded to Cloudinary');
+       const photo=new photos();
+       photo.imageUrl=result.secure_url
+       await photo.save()
+       res.status(200).send(result);
+     }
+  });
+ });
 
 app.get("/getter", async(req,res)=>{
 
@@ -76,9 +78,9 @@ app.get("/getter", async(req,res)=>{
 app.get("/get-image", async (req, res) => {
   //yaha se ham frontend me image ko bhej rahe hai to show it on browser
   try {
-    Images.find({}).then((data) => {
-      res.send({ status: "ok", data: data });
-      //Images has access to collections data will store all the uploaded image inside it
+    photos.find({}).then((data) => {
+      res.send(data );
+    
     });
   } catch (error) {
     res.json({ status: error });

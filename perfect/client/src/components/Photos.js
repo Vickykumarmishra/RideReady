@@ -11,9 +11,17 @@ export default function Photos() {
         getImage();
     },[])
     const getImage = async () => {
-        const result = await axios.get("https://perfectrider.onrender.com/get-image");
-        //console.log(result);
-        setAllImage(result.data.data);
+      axios.get("http://localhost:8000/get-image")
+      .then(response => {
+     
+        setAllImage(response.data);
+      
+        
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+
       };
     
     
@@ -28,9 +36,9 @@ export default function Photos() {
   
       { allImage == null?<p>...Loading image from database</p>:
 
-allImage.map((data)=>{
+allImage.map((soln)=>{
  
-
+  const {imageUrl}=soln;
 
 
     return(
@@ -42,7 +50,7 @@ allImage.map((data)=>{
   {/* <img src="..." class="card-img-top" alt="..."> */}
   
   
-  <img className="img-fluid" src={require(`../images/${data.image}`)}
+  <img className="img-fluid" src={imageUrl}
       
       style={{height:'14rem', width:'15rem'}}
      />
