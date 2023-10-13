@@ -11,7 +11,7 @@ export default function BookRide() {
   useEffect(() => {
 
    
-    axios.get("http://localhost:8000/getter")
+    axios.get("https://perfectrider.onrender.com/getter")
       .then(response => {
        // console.log(response.data);
         setInfo(response.data);
@@ -47,7 +47,7 @@ export default function BookRide() {
 function deleter(id) {
   console.log(id); // Corrected from console.log({id})
 
-  fetch(`http://localhost:8000/delete/${id}`, {
+  fetch(`https://perfectrider.onrender.com/delete/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'

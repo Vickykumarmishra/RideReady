@@ -11,7 +11,7 @@ export default function Photos() {
         getImage();
     },[])
     const getImage = async () => {
-      axios.get("http://localhost:8000/get-image")
+      axios.get("https://perfectrider.onrender.com/get-image")
       .then(response => {
      
         setAllImage(response.data);
