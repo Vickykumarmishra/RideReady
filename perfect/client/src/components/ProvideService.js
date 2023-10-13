@@ -109,7 +109,7 @@ export default function ProvideService() {
       e.preventDefault();
    var x= document.getElementById("inputGroupFile04").value;
 
-      /*const formData = new FormData();: Here, a new instance of the FormData object is created.FormData is a built-in
+      /*const formData  = new FormData();: Here, a new instance of the FormData object is created.FormData is a built-in
   JavaScript object that is used to construct a set of key/value pairs representing form fields and their values, which can then be sent to the server.
   formData.append("image", image);: This line appends data to the formData object. It adds a field named "image" and associates it with the image variable. 
   image presumably contains the file that you want to upload. */
