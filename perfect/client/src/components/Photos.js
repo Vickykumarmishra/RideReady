@@ -11,7 +11,7 @@ export default function Photos() {
         getImage();
     },[])
     const getImage = async () => {
-        const result = await axios.get("https://rideserver.onrender.com/get-image");
+        const result = await axios.get("https://perfectrider.onrender.com/get-image");
         //console.log(result);
         setAllImage(result.data.data);
       };
@@ -19,7 +19,7 @@ export default function Photos() {
     
   return (
     <center>
-    <div className='container-fluid' style={{}}>
+    <div className='container-fluid' >
      <center>
       <div className="container" >
   <div className="row">
@@ -31,7 +31,7 @@ export default function Photos() {
 allImage.map((data)=>{
  
 
-  
+
 
     return(
 
@@ -40,7 +40,8 @@ allImage.map((data)=>{
 
      <div className="card " style={{width: '14rem' ,marginBottom:'0.8rem',float:'left' ,marginRight:'0.4rem' ,borderBottom:'1rem solid orange',borderRadius:'0.9rem'}}>
   {/* <img src="..." class="card-img-top" alt="..."> */}
-
+  
+  
   <img className="img-fluid" src={require(`../images/${data.image}`)}
       
       style={{height:'14rem', width:'15rem'}}
