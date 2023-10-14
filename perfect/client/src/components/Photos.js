@@ -30,7 +30,7 @@ export default function Photos() {
 
         let timerInterval
         Swal.fire({
-          title: 'Images loading from database!',
+          title: '....Loading!',
           html: 'I will close in <b></b> milliseconds.',
           timer: 4000,
           timerProgressBar: true,

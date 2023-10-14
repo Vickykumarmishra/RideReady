@@ -77,9 +77,9 @@ function loader(){
 
 let timerInterval
 Swal.fire({
-  title: 'Data Loading from database',
+  title: '......Loading',
   html: 'I will close in <b></b> milliseconds.',
-  timer: 5000,
+  timer: 4000,
   timerProgressBar: true,
   didOpen: () => {
     Swal.showLoading()
