@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BookRide from './BookRide';
+import Swal from 'sweetalert2';
 import axios from 'axios';
 export default function Photos() {
     const [allImage, setAllImage] = useState(null); 
@@ -9,6 +10,7 @@ export default function Photos() {
 
     useEffect(()=>{
         getImage();
+        loader();
     },[])
     const getImage = async () => {
       axios.get("https://perfectrider.onrender.com/get-image")
@@ -24,7 +26,31 @@ export default function Photos() {
 
       };
     
-    
+      function loader(){
+
+        let timerInterval
+        Swal.fire({
+          title: 'Images loading from database!',
+          html: 'I will close in <b></b> milliseconds.',
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
+        }
   return (
     <center>
     <div className='container-fluid' >
@@ -40,19 +66,21 @@ allImage.map((soln)=>{
  
   const {imageUrl}=soln;
 
+ 
+
 
     return(
 
       
     
 
-     <div className="card " style={{width: '14rem' ,marginBottom:'0.8rem',float:'left' ,marginRight:'0.4rem' ,borderBottom:'1rem solid orange',borderRadius:'0.9rem'}}>
+     <div className="card " style={{width: '14.5rem' ,marginBottom:'0.8rem',float:'left' ,marginRight:'0.4rem' ,borderBottom:'1rem solid orange',borderRadius:'0.9rem'}}>
   {/* <img src="..." class="card-img-top" alt="..."> */}
   
   
   <img className="img-fluid" src={imageUrl}
       
-      style={{height:'14rem', width:'15rem'}}
+      style={{height:'14rem', width:'15rem',borderRadius:'0.2rem'}}
      />
 
   <div class="card-body">

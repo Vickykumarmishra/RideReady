@@ -73,10 +73,41 @@ function deleter(id) {
     )  
 }
 
+function loader(){
+
+let timerInterval
+Swal.fire({
+  title: 'Data Loading from database',
+  html: 'I will close in <b></b> milliseconds.',
+  timer: 5000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+}
+
+useEffect(()=>{
+
+  loader();
+},[])
+
   return (
   
        
-   <div  className='container' >
+   <div  className='container'  >
     {/* {loaded==false?:toast("loggedInn",{ toastId: 'success11'})} */}
     <h1 style={{ fontFamily: 'cursive'}} ><b>Available Bikes Details</b></h1>
       
@@ -134,7 +165,7 @@ function deleter(id) {
           }
           </tbody>
           </table></div>
-<Link to="/Photos" style={{color:"orange"}}><center> <div  className="container " style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem'}}><b>View images of  bikes</b></div></center></Link>
+<Link to="/Photos" style={{color:"orange"}}><center> <div  className="container  " style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem'}}><b>View images of  bikes</b></div></center></Link>
 <Link to="/Home" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem'}}><b>Go To Home</b></div></center></Link>
 
         

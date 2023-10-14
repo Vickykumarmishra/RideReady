@@ -24,8 +24,8 @@ export default function Home() {
   <div className='row'>
     <div className='col'>
       <center>
-     <Link to="/BookRide"><button className='btn btn-primary' style={{backgroundColor:'#39395f', color:'white',marginLeft:'2rem',marginTop:'0.5rem',marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}} >Book Your Ride</button></Link>
-     <Link to="/ProvideService"> <button className='btn btn-primary' style={{backgroundColor:'#39395f', color:'white',marginLeft:"2rem",marginTop:"0.5rem",marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}}>Provide Service</button></Link>
+     <Link to="/BookRide"><button className='bn5' style={{backgroundColor:'#39395f!important',marginLeft:'2rem',marginTop:'0.5rem',marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}} ><b>Book Your Ride</b></button></Link>
+     <Link to="/ProvideService"> <button className='bn5' style={{backgroundColor:'#39395f',marginLeft:"2rem",marginTop:"0.5rem",marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}}><b>Provide Service</b></button></Link>
       </center>
     </div>
   </div>

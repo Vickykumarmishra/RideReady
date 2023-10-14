@@ -242,7 +242,7 @@ else{
 
           
           </div>
-         <Link to="/Home" style={{color:"orange"}}> <div style={{color:'white',backgroundColor:"orange",marginBottom:'0.5rem'}}><b>Go To Home</b></div></Link>
+         <Link to="/Home" style={{color:"orange"}}> <div style={{color:'white',backgroundColor:"orange",marginBottom:'0.5rem'}}><center><img src='home icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/><b>Home</b></center></div></Link>
        
     </div>
       <Footer/></>

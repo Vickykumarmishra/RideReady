@@ -49,7 +49,7 @@ export default function NavRide() {
 
           <div className="col" style={{}}>
       
-      <center>{isAuthenticated?<li><button whileHover={{scale:1.1}} style={{marginRight:"1rem",height:'2.5rem',marginTop:'2rem',marginBottom:'1rem'}} className="btn btn-light" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) }><center><b> Log Out</b></center></button></li>: <li><button whileHover={{scale:1.1}} className="btn btn-light" style={{marginRight:"1rem",height:'2.5rem',marginTop:'5rem',marginBottom:'2rem'}} onClick={() =>loginWithRedirect() }><center><b>Log In</b></center></button></li>}</center>
+      <center>{isAuthenticated?<li><button whileHover={{scale:1.1}} style={{marginRight:"1rem",marginTop:'2rem',marginBottom:'1rem'}} className="bn5" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } }) }><center><b> Log Out</b></center></button></li>: <li><button whileHover={{scale:1.1}} className="bn5" style={{marginRight:"1rem",marginTop:'5rem',marginBottom:'2rem'}} onClick={() =>loginWithRedirect() }><center><b>Log In</b></center></button></li>}</center>
       
 
    </div>
