@@ -79,7 +79,7 @@ let timerInterval
 Swal.fire({
   title: '......Loading',
   html: 'I will close in <b></b> milliseconds.',
-  timer: 4000,
+  timer: 100000,
   timerProgressBar: true,
   didOpen: () => {
     Swal.showLoading()

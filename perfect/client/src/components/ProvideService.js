@@ -169,7 +169,32 @@ else{
     Inside this function, you can access the selected file using e.target.files[0],where e is the event object. */
     };
     
-   
+   function clicked(){
+
+    let timerInterval
+Swal.fire({
+  title: '....Uploading Image to database',
+  html: 'I will close in <b></b> milliseconds.',
+  timer: 100000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+
+   }
   return (
     <>
     <div className="container" style={{marginTop:"2rem"}}>
@@ -230,7 +255,7 @@ else{
 <div className="input-group" style={{marginBottom:'0.5rem'}}>
         <input type="file" accept="image/*" enctype="multipart/form-data" onChange={onInputChange} className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image"></input>
          {/*accept="image/*" indicates that the input should accept all types of image files. */}
-        <button class="btn btn-outline-secondary"  style={{backgroundColor:"orange",color:"white"}} type="submit"><b>upload</b></button>  </div>
+        <button class="btn btn-outline-secondary"  style={{backgroundColor:"orange",color:"white"}} type="submit" onClick={clicked}><b>upload</b></button>  </div>
       </form>
     
     </div>
