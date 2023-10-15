@@ -24,7 +24,7 @@ export default function Home() {
   <div className='row'>
     <div className='col'>
       <center>
-     <Link to="/BookRide"><button className='bn5' style={{backgroundColor:'#39395f!important',marginLeft:'2rem',marginTop:'0.5rem',marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}} ><b>Book Your Ride</b></button></Link>
+     <Link to="/BookRide"><button className='bn5' style={{backgroundColor:'#313131 !important',marginLeft:'2rem',marginTop:'0.5rem',marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}} ><b>Book Your Ride</b></button></Link>
      <Link to="/ProvideService"> <button className='bn5' style={{backgroundColor:'#39395f',marginLeft:"2rem",marginTop:"0.5rem",marginBottom:'0.5rem',borderBottom:"0.4rem solid green",borderRadius:'0.7rem'}}><b>Provide Service</b></button></Link>
       </center>
     </div>

@@ -118,17 +118,17 @@ useEffect(()=>{
      
 
 
-<div className='overflow-x-auto '>
+<div className='overflow-x-auto ' >
   
   
-<table className="table  table-hover table-success table-bordered  caption-top  " >
+<table className="table  table-hover table-success table-bordered  caption-top"  >
     <caption style={{color:'red'}}>[Refresh if data not loaded]</caption>
        <thead style={{border:"0.1rem solid black",backgroundColor:"#416a59", color:"#416a59"}}><tr>
-          <th>Name of Biker</th>
-           <th>phone no</th> 
-          <th> pickup point</th>
-           <th>Amount</th>
-          <th>Time</th> 
+          <th> <img src='name icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/>Biker's Name</th>
+           <th><img src='phone icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/>phone</th> 
+          <th> <img src='address icon.png' style={{height:"1.2rem",width:'2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/> pickup point</th>
+           <th> <img src='money icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/> Amount</th>
+          <th><img src='time icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/>Time</th> 
           <th>Delete</th>
   
           {/* <th>image</th> */}
@@ -150,7 +150,7 @@ useEffect(()=>{
                   <td>{pickup}</td>
                   <td >{charge}</td>
                   <td >{time}</td>
-                 <button className='btn btn-danger' onClick={()=>{deleter(_id)}} style={{backgroundColor:'orange',margin:'0.2rem'}}>Delete</button>
+                 <button className='btn btn-danger' onClick={()=>{deleter(_id)}} style={{backgroundColor:'orange',margin:'0.2rem'}}><b>Delete</b></button>
                   {/* <td>{image}</td> */}
                  
                  </tr>

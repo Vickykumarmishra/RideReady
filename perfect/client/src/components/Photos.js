@@ -54,6 +54,7 @@ export default function Photos() {
   return (
     <center>
     <div className='container-fluid' >
+    <h1 style={{ fontFamily: 'cursive',marginBottom:"1rem"}} ><b>Available Bikes Images</b></h1>
      <center>
       <div className="container" >
   <div className="row">

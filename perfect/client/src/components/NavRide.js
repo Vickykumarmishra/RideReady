@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { NavLink, redirect } from 'react-router-dom'
 //import Profile from './Profile';
 
-
+import Feedback from './Feedback';
 import ProvideService from './ProvideService';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,7 @@ export default function NavRide() {
 
       {/* {isAuthenticated && navigate('/home')} */}
     
-      <nav className="navbar navbar-dark bg-dark fixed-top" >
+      <nav className="navbar navbar-dark  fixed-top" style={{backgroundColor:"#272727"}}>
   <div className="container-fluid" >
     <h1 style={{color:'white'}}><b>RideReady</b></h1>
     
@@ -41,7 +41,7 @@ export default function NavRide() {
         <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <center><div className="container" style={{marginTop:"0.5rem"}}>
-        {isAuthenticated && <p style={{color:'white',marginRight:'1rem',marginTop:"0.9rem"}}><img style={{borderRadius:'50%',height:'3rem'}} src={user.picture} alt={user.name} /><br></br>{user.name} </p>}
+        {isAuthenticated && <p style={{color:'white',marginRight:'1rem',marginTop:"0.9rem"}}><img style={{borderRadius:'50%',height:'4rem',marginBottom:"0.2rem"}} src={user.picture} alt={user.name} /><br></br>{user.name} </p>}
         </div></center>
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -58,7 +58,7 @@ export default function NavRide() {
         {isAuthenticated && (x+=1)}</li>
   
           <li className="nav-item">
-            <NavLink  className="nav-link" to="#">About us</NavLink>
+            <NavLink  className="nav-link" to="/Feedback"><b>Give Feedback</b></NavLink>
           </li>
           
         </ul>

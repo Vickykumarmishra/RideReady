@@ -8,7 +8,7 @@ export default function Footer() {
   
   <footer
           className="text-center text-lg-start text-white" 
-          style={{backgroundColor:"#416a59",boxShadow:'1px 1px 2px white, 0 0 25px white, 0 0 5px white'}}
+          style={{backgroundColor:"#313131",boxShadow:'1px 1px 2px white, 0 0 25px white, 0 0 5px white'}}
           >
    
     <div className="container p-4 pb-0"  id='myfoot'>
