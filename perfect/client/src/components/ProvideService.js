@@ -127,6 +127,29 @@ export default function ProvideService() {
 
 else{  
       
+  let timerInterval
+  Swal.fire({
+    title: '....Uploading Image to database',
+    html: 'I will close in <b></b> milliseconds.',
+    timer: 100000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading()
+      const b = Swal.getHtmlContainer().querySelector('b')
+      timerInterval = setInterval(() => {
+        b.textContent = Swal.getTimerLeft()
+      }, 100)
+    },
+    willClose: () => {
+      clearInterval(timerInterval)
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log('I was closed by the timer')
+    }
+  })
+  
   const formData = new FormData();
   formData.append("image", image);
   
@@ -168,33 +191,7 @@ else{
     This function typically uses the onChange event handler on the file input element.
     Inside this function, you can access the selected file using e.target.files[0],where e is the event object. */
     };
-    
-   function clicked(){
-
-    let timerInterval
-Swal.fire({
-  title: '....Uploading Image to database',
-  html: 'I will close in <b></b> milliseconds.',
-  timer: 100000,
-  timerProgressBar: true,
-  didOpen: () => {
-    Swal.showLoading()
-    const b = Swal.getHtmlContainer().querySelector('b')
-    timerInterval = setInterval(() => {
-      b.textContent = Swal.getTimerLeft()
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-  }
-})
-
-   }
+ 
   return (
     <>
     <div className="container" style={{marginTop:"2rem"}}>
@@ -255,7 +252,7 @@ Swal.fire({
 <div className="input-group" style={{marginBottom:'0.5rem'}}>
         <input type="file" accept="image/*" enctype="multipart/form-data" onChange={onInputChange} className="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image"></input>
          {/*accept="image/*" indicates that the input should accept all types of image files. */}
-        <button class="btn btn-outline-secondary"  style={{backgroundColor:"orange",color:"white"}} type="submit" onClick={clicked}><b>upload</b></button>  </div>
+        <button class="btn btn-outline-secondary"  style={{backgroundColor:"orange",color:"white"}} type="submit" ><b>upload</b></button>  </div>
       </form>
     
     </div>
@@ -267,7 +264,7 @@ Swal.fire({
 
           
           </div>
-         <Link to="/Home" style={{color:"orange"}}> <div style={{color:'white',backgroundColor:"orange",marginBottom:'0.5rem'}}><center><img src='home icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/><b>Home</b></center></div></Link>
+         <Link to="/Home" style={{color:"orange"}}> <div style={{color:'white',backgroundColor:"orange",marginBottom:'0.5rem',border:"0.1rem solid red"}}><center><img src='home icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/><b>Home</b></center></div></Link>
        
     </div>
       <Footer/></>

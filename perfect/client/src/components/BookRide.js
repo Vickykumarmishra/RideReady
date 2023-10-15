@@ -165,8 +165,8 @@ useEffect(()=>{
           }
           </tbody>
           </table></div>
-<Link to="/Photos" style={{color:"orange"}}><center> <div  className="container  " style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem'}}><b>View images of  bikes</b></div></center></Link>
-<Link to="/Home" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem'}}><b>Go To Home</b></div></center></Link>
+<Link to="/Photos" style={{color:"orange"}}><center> <div  className="container  " style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem',border:"0.1rem solid red"}}><b>View images of  bikes</b></div></center></Link>
+<Link to="/Home" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"20rem",borderRadius:'0.5rem',border:"0.1rem solid red"}}><img src='home icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/><b>Go To Home</b></div></center></Link>
 
         
           </div>

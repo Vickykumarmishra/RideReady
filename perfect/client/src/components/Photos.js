@@ -74,7 +74,7 @@ allImage.map((soln)=>{
       
     
 
-     <div className="card " style={{width: '14.5rem' ,marginBottom:'0.8rem',float:'left' ,marginRight:'0.4rem' ,borderBottom:'1rem solid orange',borderRadius:'0.9rem'}}>
+     <div className="card " style={{width: '14.5rem' ,marginBottom:'0.8rem',float:'left' ,marginRight:'1rem' ,borderBottom:'1rem solid orange',borderRadius:'0.9rem',boxShadow:'1px 1px 2px orange, 0 0 25px orange, 0 0 5px white',backgroundColor:'white'}}>
   {/* <img src="..." class="card-img-top" alt="..."> */}
   
   
@@ -99,8 +99,8 @@ allImage.map((soln)=>{
 })
 }</div></div></div><p style={{color:'red'}}>[images are fetched from database]</p></center> 
 
-<Link to="/BookRide" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"14rem",borderRadius:'0.5rem'}}><b>Go Back</b></div></center></Link>
-<Link to="/Home" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"14rem",borderRadius:'0.5rem'}}><b>Go To Home</b></div></center></Link>
+<Link to="/BookRide" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"14rem",borderRadius:'0.5rem',border:"0.1rem solid red"}}><b>Go Back</b></div></center></Link>
+<Link to="/Home" style={{color:"orange"}}><center> <div  className="container" style={{color:'white',backgroundColor:"orange",margin:'0.5rem',width:"14rem",borderRadius:'0.5rem',border:"0.1rem solid red"}}><img src='home icon.png' style={{height:"1.2rem",width:'1.2rem',marginRight:'0.5rem',marginBottom:'0.1rem'}}/><b>Go To Home</b></div></center></Link>
 
     </div></center>
   )
