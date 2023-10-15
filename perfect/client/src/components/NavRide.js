@@ -57,10 +57,16 @@ export default function NavRide() {
         <li style={{visibility:'hidden'}}>
         {isAuthenticated && (x+=1)}</li>
   
+
+        <li className="nav-item">
+            <NavLink  className="nav-link" to="/Home"><b>Home</b></NavLink>
+          </li>
           <li className="nav-item">
             <NavLink  className="nav-link" to="/Feedback"><b>Give Feedback</b></NavLink>
           </li>
           
+         
+
         </ul>
    
       </div>
